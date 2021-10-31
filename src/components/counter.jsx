@@ -1,17 +1,14 @@
 import React from "react";
 
 class Counter extends React.Component {
- 
-
   styles = {
-    margin: '20px',
+    margin: "20px",
   };
-
 
   render() {
     return (
-       <div className="my-4">
-             <span className={this.getSpanClasses()}>{this.formatCount()}</span>
+      <div className="my-4">
+        <span className={this.getSpanClasses()}>{this.formatCount()}</span>
         <button
           onClick={() => this.props.onIncrement(this.props.counter)}
           style={this.styles}
@@ -19,11 +16,14 @@ class Counter extends React.Component {
         >
           Increment
         </button>
-         
-         <button onClick={() => this.props.onDelete(this.props.counter.id)} className="btn btn-danger btn-sm">Delete</button>
-       </div>
-      
-   
+
+        <button
+          onClick={() => this.props.onDelete(this.props.counter.id)}
+          className="btn btn-danger btn-sm"
+        >
+          Delete
+        </button>
+      </div>
     );
   }
 
