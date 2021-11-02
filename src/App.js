@@ -25,7 +25,7 @@ class App extends React.Component {
     const counters = [...this.state.counters];
     const index = counters.indexOf(counter);
     counters[index] = { ...counter };
-    counters[index].value = counters[index].value > 0 ? counters[index].value - 1 : 0 ;
+    counters[index].value--
     this.setState({ counters });
   };
   handleReset = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Counter extends React.Component {
   styles = {
@@ -19,15 +19,16 @@ class Counter extends React.Component {
               style={this.styles}
               className="btn btn-secondary"
             >
-             <FontAwesomeIcon icon="plus" />
+              <FontAwesomeIcon icon="plus" />
             </button>
 
             <button
               onClick={() => this.props.onDecrement(this.props.counter)}
               style={this.styles}
-              className={this.getDecrementBtnClasses()}
+              className="btn btn-secondary"
+              disabled={this.props.counter.value === 0 ? "disabled" : ""}
             >
-             <FontAwesomeIcon icon="minus" />
+              <FontAwesomeIcon icon="minus" />
             </button>
 
             <button
@@ -41,12 +42,6 @@ class Counter extends React.Component {
         </div>
       </div>
     );
-  }
-
-  getDecrementBtnClasses() {
-    let classes = "btn btn-secondary ";
-    classes += this.props.counter.value === 0 ? "disabled" : "";
-    return classes;
   }
 
   getSpanClasses() {
