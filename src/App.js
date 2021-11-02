@@ -1,6 +1,10 @@
 import React from "react";
 import Navbar from "./components/navbar";
 import Counters from "./components/counters";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faMinus, faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faMinus, faPlus, faTimes)
 class App extends React.Component {
   state = {
     counters: [
@@ -15,6 +19,13 @@ class App extends React.Component {
     const index = counters.indexOf(counter);
     counters[index] = { ...counter };
     counters[index].value++;
+    this.setState({ counters });
+  };
+  handleDecrement = (counter) => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    counters[index].value = counters[index].value > 0 ? counters[index].value - 1 : 0 ;
     this.setState({ counters });
   };
   handleReset = () => {
@@ -43,6 +54,7 @@ class App extends React.Component {
             counters={this.state.counters}
             onReset={this.handleReset}
             onIncrement={this.handleIncrement}
+            onDecrement={this.handleDecrement}
             onDelete={this.handleDelete}
           />
         </main>
